@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "test:inotiteblock",
+  "ingredients": [
+	{
+      "item": "test:inotitedust"
+    },
+    {
+      "item": "test:inotitedust"
+    },
+    {
+      "item": "test:inotitedust"
+    },
+    {
+      "item": "test:inotitedust"
+    },
+    {
+      "item": "test:inotitedust"
+    },
+    {
+      "item": "test:inotitedust"
+    },
+    {
+      "item": "test:inotitedust"
+    },
+    {
+      "item": "test:inotitedust"
+    },
+    {
+      "item": "test:inotitedust"
+    }
+  ],
+  "result": {
+    "item": "test:inotiteblock"
+  }
+}

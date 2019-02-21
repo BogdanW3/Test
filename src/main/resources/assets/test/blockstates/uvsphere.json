@@ -1,0 +1,12 @@
+{
+    "forge_marker": 1,
+    "variants":
+    {
+        "": [
+				{
+					"custom": {"flip-v" : true},
+					"model": "test:uvsphere.obj"
+				}
+			]
+    }
+}

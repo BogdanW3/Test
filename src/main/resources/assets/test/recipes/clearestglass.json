@@ -1,0 +1,22 @@
+{
+  "type": "forge:ore_shaped",
+  "group": "test:clearestglass",
+  "pattern": [
+    "GGG",
+	"GIG",
+	"GGG"
+  ],
+  "key": {
+    "I": {
+      "item": "test:inotitedust"
+    },
+	"G": {
+	  "type": "forge:ore_dict",
+        "ore": "blockGlass"
+	}
+  },
+  "result": {
+    "item": "test:clearestglass",
+	"count":8
+  }
+}

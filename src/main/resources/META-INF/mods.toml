@@ -1,0 +1,19 @@
+# The name of the mod loader type to load
+modLoader="javafml"
+# A version range to match for said mod loader
+loaderVersion="[25.0,)"
+# A URL to query for updates
+updateJSONURL="http://mnull.rs/"
+# A URL to refer people to when problems occur with this mod
+issueTrackerURL="http://my.issue.trackernull/"
+
+# A list of mods - how many allowed here is determined by the individual mod loader
+[[mods]]
+    # The modid of the mod
+    modId="test"
+    # The version number of the mod
+    version="1.0.9"
+     # A display name for the mod
+    displayName="Test Mod 1.13.2"
+    # The description text for the mod (multi line!)
+    description=''' This is my mod, there may be others, but this one is test '''

@@ -1,0 +1,8 @@
+# Material Count: 1
+
+newmtl None1
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.356204 0.356204 0.356204
+d 1.000000
+map_Kd test:blocks/uvsphere
