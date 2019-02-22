@@ -1,0 +1,16 @@
+{
+	"block.test.clearestglass": "Clearest Glass",
+	"itemGroup.test": "Test",
+	"keys.test.category": "Test Controls",
+	"keys.test.use_tool": "Use Tool",
+	"block.test.teapot": "Teapot",
+	"block.test.inotiteblock": "Inotite Block",
+	"block.test.inotiteore": "Inotite Ore",
+	"item.test.inotitedust": "Inotite Dust",
+	"item.test.inotitepickaxe": "Inotite Pickaxe",
+	"item.test.groundstone": "Ground Stone",
+	"entity.test.wings.name": "Wings",
+	"block.test.hollowcobble": "Hollow Cobblestone",
+	"block.test.toughstone": "Tough Stone",
+	"block.test.uvsphere": "UV Sphere"
+}
