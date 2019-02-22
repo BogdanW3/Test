@@ -1,18 +1,18 @@
 package com.bogdanw3.test.item;
 
+import com.bogdanw3.test.tab.Tab;
+
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 
 public class DefaultItem extends Item
 {
 	public DefaultItem()
 	{
-		this((new Item.Properties()).group(ItemGroup.MISC));
+		this((new Item.Properties()).group(Tab.TEST_TAB));
 	}
 	public DefaultItem(Item.Properties builder)
 	{
-		super(builder.group(ItemGroup.MISC));
-		//this.setCreativeTab(Tab.TEST_TAB);
+		super(builder.group(Tab.TEST_TAB));
 	}
 	public DefaultItem(String name)
 	{
