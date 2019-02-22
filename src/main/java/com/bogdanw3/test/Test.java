@@ -1,12 +1,17 @@
 package com.bogdanw3.test;
 
 import com.bogdanw3.test.init.*;
+import com.bogdanw3.test.reference.Config;
 import com.bogdanw3.test.reference.Reference;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import net.minecraftforge.common.ForgeConfig;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -26,14 +31,20 @@ public class Test
 	
 	public Test()
 	{
-        //FMLJavaModLoadingContext.get().getModEventBus().addListener(this::preInit);
-
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clInit);
+		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+		
+        //FMLJavaModLoadingContext.get().getModEventBus().addListener(this::preInit)
+       
+		modEventBus.addListener(this::clInit);
         
         //FMLJavaModLoadingContext.get().getModEventBus().addListener(this::init);
 		
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::postLoad);
+        modEventBus.addListener(this::postLoad);
 
+        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, Config.clientSpec);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, Config.serverSpec);
+        modEventBus.register(ForgeConfig.class);
+        
         // Register ourselves for server, registry and other game events we are interested in
         //MinecraftForge.EVENT_BUS.register(this);
     }
