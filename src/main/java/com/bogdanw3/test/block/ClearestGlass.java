@@ -1,5 +1,6 @@
 package com.bogdanw3.test.block;
 
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.BlockRenderLayer;
 
@@ -7,10 +8,8 @@ public class ClearestGlass extends DefaultBlock
 {
 	public ClearestGlass()
 	{
-		super(Material.GLASS, "ClearestGlass");
-		/*this.setLightOpacity(0);
-		this.setHardness(0.3F);
-		this.setSoundType(SoundType.GLASS);*/
+		super("ClearestGlass", Properties.create(Material.GLASS)
+				.hardnessAndResistance(0.3F).sound(SoundType.GLASS));
 	}
 	 
 	/*@Override

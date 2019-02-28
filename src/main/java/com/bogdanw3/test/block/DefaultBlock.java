@@ -5,25 +5,18 @@ import net.minecraft.block.material.Material;
 
 public class DefaultBlock extends Block
 {
-	public DefaultBlock(Material material)
+	public DefaultBlock(Properties properties)
 	{
-		super(Block.Properties.create(material));
-		//this.setItemGroup(Tab.TEST_TAB);
-	}
-	public DefaultBlock()
-	{
-		this(Material.ROCK);
+		super(properties);
 	}
 	public DefaultBlock(String name)
 	{
-		this();
-		//this.setUnlocalizedName(name);
+		this(Properties.create(Material.ROCK));
 		this.setRegistryName(name.toLowerCase());
 	}
-	public DefaultBlock(Material material, String name)
+	public DefaultBlock(String name, Properties properties)
 	{
-		this(material);
-		//this.setUnlocalizedName(name);
+		this(properties);
 		this.setRegistryName(name.toLowerCase());
 	}
 }

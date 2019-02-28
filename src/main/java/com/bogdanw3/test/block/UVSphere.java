@@ -7,7 +7,7 @@ public class UVSphere extends DefaultBlock
 {
 	public UVSphere()
 	{
-		super(Material.CLAY, "UVSphere");
+		super("UVSphere", Properties.create(Material.CLAY));
 	}
 	/*@OnlyIn(Dist.CLIENT)
     public void initModel()

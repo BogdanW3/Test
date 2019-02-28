@@ -19,7 +19,7 @@ public class Teapot extends DefaultBlock
 {
 	public Teapot()
 	{
-		super(Material.CLOTH, "Teapot");
+		super("Teapot", Properties.create(Material.CLOTH));
 	}
 
     /*@Override

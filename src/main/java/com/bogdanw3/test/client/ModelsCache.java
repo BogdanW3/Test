@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Predicate;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.bogdanw3.test.client.obj.AdvancedModelLoader;
 import com.bogdanw3.test.client.obj.IModelCustom;
 
@@ -13,9 +16,11 @@ import net.minecraftforge.resource.IResourceType;
 import net.minecraftforge.resource.ISelectiveResourceReloadListener;
 import net.minecraftforge.resource.VanillaResourceType;
 
-public enum ModelsCache implements ISelectiveResourceReloadListener {
-
+public enum ModelsCache implements ISelectiveResourceReloadListener
+{
 	INSTANCE;
+
+	//private static final Logger logger = LogManager.getLogger();
 
 	private final Map<ResourceLocation, IModelCustom> cache = new HashMap
 			<ResourceLocation, IModelCustom>();
@@ -25,7 +30,7 @@ public enum ModelsCache implements ISelectiveResourceReloadListener {
 		IModelCustom model = cache.get( location );
 		if( model == null )
 		{
-			//Test.logger.info("Cache miss for: " + location.getResourcePath());
+			//logger.info("Cache miss for: " + location.getResourcePath());
 			try
 			{
 				model = AdvancedModelLoader.loadModel(location);

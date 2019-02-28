@@ -1,14 +1,21 @@
 package com.bogdanw3.test;
 
+import com.bogdanw3.test.client.ModelsCache;
 import com.bogdanw3.test.init.*;
+import com.bogdanw3.test.proxy.ClientProxy;
+import com.bogdanw3.test.proxy.IProxy;
+import com.bogdanw3.test.proxy.ServerProxy;
 import com.bogdanw3.test.reference.Config;
 import com.bogdanw3.test.reference.Reference;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.resources.IReloadableResourceManager;
 import net.minecraftforge.common.ForgeConfig;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -19,58 +26,48 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 @Mod(value=Reference.MOD_ID)
 public class Test 
 {
-	/*@Mod.Instance(Reference.MOD_ID)
-	public static Test instance;*/
+	//public static Test instance;
 	
-	/*@SidedProxy(clientSide=Reference.CLIENT_PROXY_CLASS, serverSide=Reference.SERVER_PROXY_CLASS)
-	public static IProxy proxy;*/
-	
-	//public static SimpleNetworkWrapper TestChannel;
+	public static IProxy proxy = DistExecutor.runForDist(() -> () -> new ClientProxy(),
+														() -> () -> new ServerProxy());
 	
 	private static final Logger logger = LogManager.getLogger();
 	
 	public Test()
 	{
+		//instance = this;
+		
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		
-        //FMLJavaModLoadingContext.get().getModEventBus().addListener(this::preInit)
+        //modEventBus.addListener(this::preInit)
        
 		modEventBus.addListener(this::clInit);
         
-        //FMLJavaModLoadingContext.get().getModEventBus().addListener(this::init);
+        //modEventBus.addListener(this::init);
 		
         modEventBus.addListener(this::postLoad);
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, Config.clientSpec);
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, Config.serverSpec);
         modEventBus.register(ForgeConfig.class);
-        
-        // Register ourselves for server, registry and other game events we are interested in
-        //MinecraftForge.EVENT_BUS.register(this);
     }
 	
 	//public void preInit(FMLPreRegistrationEvent event)
 	//{
-		//ConfigHandler.init(event.getSuggestedConfigurationFile());
 		//MinecraftForge.EVENT_BUS.register(new ConfigHandler());
-		//proxy.preInit();
-		/*TestChannel = NetworkRegistry.INSTANCE.newSimpleChannel("TestChannel");
-		TestChannel.registerMessage(TeaMessageS.Handler.class, TeaMessageS.class, 0, Side.SERVER);
-		TestChannel.registerMessage(TeaMessageC.Handler.class, TeaMessageC.class, 1, Side.CLIENT);*/
 	//}
 	
 	public void clInit(FMLClientSetupEvent event)
-	{
+	{	
 		//Seems .obj extension handling isn't yet implemented
 		//OBJLoader.INSTANCE.addDomain(Reference.MOD_ID);
 		ModEntities.bindRenderer();
+		((IReloadableResourceManager)Minecraft.getInstance().getResourceManager())
+											.addReloadListener(ModelsCache.INSTANCE);
 	}
 	
 	public void postLoad(FMLLoadCompleteEvent event)
 	{
-
-		//NetworkRegistry.INSTANCE.registerGuiHandler(this, new GUIHandler());
-		//proxy.init();
 		logger.info("Salutations, humanoids!");
 	}
 	

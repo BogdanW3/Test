@@ -1,4 +1,6 @@
 {
     "parent": "test:item/default",
-	"layer0": "test:items/inotitedust"
+    "textures": {
+		"layer0": "test:items/inotitedust"
+	}
 }
