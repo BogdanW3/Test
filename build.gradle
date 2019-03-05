@@ -23,7 +23,7 @@ minecraft {
     // stable_#            Stables are built at the discretion of the MCP team.
     mappings channel: 'snapshot', version: '20180921-1.13'
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
-    
+
     // accessTransformer = file('build/resources/main/META-INF/accesstransformer.cfg')
 
     // Default run configurations.
@@ -64,7 +64,7 @@ minecraft {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.13.2-25.0.63'
+    minecraft 'net.minecraftforge:forge:1.13.2-25.0.70'
 
     // You may put jars on which you depend on in ./libs or you may define them like so..
     // compile "some.group:artifact:version:classifier"
@@ -86,7 +86,6 @@ dependencies {
 
 }
 
-// Example for how to get properties into the manifest for reading by the runtime..
 jar {
     manifest {
         attributes([
@@ -101,3 +100,30 @@ jar {
         ])
     }
 }
+
+//Example apiJar and maven configurations
+//Just a reminder to apply the maven plugin
+//apply plugin: 'maven-publish'
+//task apiJar(type: Jar) {
+//    //classifier = "modonly"
+//    from(sourceSets.main.output) {
+//        include "com/bogdanw3/test/api/**"
+//    }
+//}
+
+//reobf.create("apiJar")
+//reobfApiJar.setMappings(file("build/createMcpToSrg/output.tsrg"))
+//build.dependsOn(reobfApiJar)
+
+//publishing {
+//    tasks.publish.dependsOn 'build'
+//    publications {
+//       mavenJava(MavenPublication) {
+//            from components.java
+//    	    [source: 'build/reobfApiJar/output.jar', extension: 'jar']
+//        }
+//    }
+//    repositories {
+//        mavenLocal()
+//    }
+//}
