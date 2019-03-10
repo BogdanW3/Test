@@ -22,6 +22,7 @@ public class ModEntities
 			EntityType.Builder.<Wings>create(Wings.class, Wings::new).disableSerialization());
 	public static final TileEntityType<TeapotTile> TEAPOTTILE = registerTE("teapottile",
 			TileEntityType.Builder.<TeapotTile>create(TeapotTile::new));
+			
 	public static void init()
 	{
 		/*GameRegistry.registerTileEntity(TeapotTile.class, 
@@ -30,8 +31,8 @@ public class ModEntities
 			Wings.class, "Wings", 690, Test.instance, 60, 3, false);*/
 		/*EntityRegistry.addSpawn(Wings.class, 1, 1, 2, EnumCreatureType.CREATURE,
 				Biomes.FOREST, Biomes.HELL);*/
-
 	}
+	
 	@OnlyIn(Dist.CLIENT)
 	public static void bindRenderer()
 	{
@@ -39,12 +40,14 @@ public class ModEntities
 		RenderingRegistry.registerEntityRenderingHandler(Wings.class,
 				new RenderWingsFactory());
 	}
+	
 	@SuppressWarnings("unchecked")
 	private static <T extends Entity> EntityType<T> registerE(String name, EntityType.Builder<T> entityBuilder)
 	{
 		EntityType<T> entitytype = (EntityType<T>) entityBuilder.build(name).setRegistryName(new ResourceLocation(Reference.MOD_ID, name));
 	    return entitytype;
 	}
+	
 	@SuppressWarnings("unchecked")
 	private static <T extends TileEntity> TileEntityType<T> registerTE(String name, TileEntityType.Builder<T> teBuilder)
 	{

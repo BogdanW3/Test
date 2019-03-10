@@ -17,13 +17,11 @@ public class DefaultItem extends Item
 	public DefaultItem(String name)
 	{
 		this();
-		//this.setUnlocalizedName(name);
 		this.setRegistryName(name.toLowerCase());
 	}
 	public DefaultItem(Item.Properties builder, String name)
 	{
 		this(builder);
-		//this.setUnlocalizedName(name);
 		this.setRegistryName(name.toLowerCase());
 	}
 }

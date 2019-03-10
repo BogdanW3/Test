@@ -23,8 +23,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-@Mod(value=Reference.MOD_ID)
-public class Test 
+@Mod(Reference.MOD_ID)
+public class Test
 {
 	//public static Test instance;
 	

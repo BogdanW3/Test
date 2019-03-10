@@ -13,5 +13,4 @@ public class RenderWingsFactory implements IRenderFactory<Wings>
 	{
 		return new RenderWings(manager);
 	}
-
 }

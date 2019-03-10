@@ -10,6 +10,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.lwjgl.opengl.GL11;
 
 @OnlyIn(Dist.CLIENT)
@@ -19,6 +21,9 @@ public class RenderTeapot extends TileEntityRenderer<TeapotTile>
 	public String texturename="Red";
 	private IModelCustom model;
 	private ResourceLocation texture;
+	
+	private static final Logger logger = LogManager.getLogger();
+	
 	@Override
 	public void render(TeapotTile te, double x, double y, double z, float partialTicks, int destroyStage)
 	{
@@ -30,7 +35,7 @@ public class RenderTeapot extends TileEntityRenderer<TeapotTile>
 		}
 		if (model == null)
 		{
-			//Test.logger.warn("Model: " + modelname + " wasn't found or couldn't be loaded! Loading default");
+			logger.warn("Model: " + modelname + " wasn't found or couldn't be loaded! Loading default");
 			model = ModelsCache.INSTANCE.getModel(new ResourceLocation(Reference.MOD_ID, "models/teapot.obj"));
 		}
 		if (texturename != te.texturename)

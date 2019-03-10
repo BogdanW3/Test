@@ -21,7 +21,7 @@ import com.bogdanw3.test.tab.Tab;
 public class RegistryHandler
 {
 	private static final Logger logger = LogManager.getLogger();
-	
+
 	public final static Block[] blocks =
 	{
 		ModBlocks.ClearestGlass,
@@ -32,14 +32,14 @@ public class RegistryHandler
 		ModBlocks.Teapot,
 		ModBlocks.ToughStone
 	};
-	
+
 	public final static Item[] items = 
 	{
 		ModItems.GroundStone,
 		ModItems.InotiteDust,
 		ModItems.InotitePickaxe,
 	};
-	
+
 	public final static Item[] itemBlocks =
 	{
 		fromBlock(ModBlocks.ClearestGlass),
@@ -50,37 +50,38 @@ public class RegistryHandler
 		fromBlock(ModBlocks.Teapot),
 		fromBlock(ModBlocks.ToughStone)
 	};
-	
+
 	@SubscribeEvent
-    public static void registerBlocks(final Register<Block> event)
+	public static void registerBlocks(final Register<Block> event)
 	{
 		logger.info("Registering blocks for Test");
 		event.getRegistry().registerAll(blocks);
 	}
-	
-	@SubscribeEvent
-    public static void registerItems(final Register<Item> event)
-	{
-		logger.info("Registering items for Test");
-        event.getRegistry().registerAll(items);
-        event.getRegistry().registerAll(itemBlocks);
-    }
-	
-	@SubscribeEvent
-    public static void registerTiles(Register<TileEntityType<?>> event)
-    {
-		logger.info("Registering tiles for Test");
-		event.getRegistry().register(ModEntities.TEAPOTTILE);
-    }
 
 	@SubscribeEvent
-    public static void registerEntities(Register<EntityType<?>> event)
-    {
+	public static void registerItems(final Register<Item> event)
+	{
+		logger.info("Registering items for Test");
+		event.getRegistry().registerAll(items);
+		event.getRegistry().registerAll(itemBlocks);
+	}
+
+	@SubscribeEvent
+	public static void registerTiles(Register<TileEntityType<?>> event)
+	{
+		logger.info("Registering tiles for Test");
+		event.getRegistry().register(ModEntities.TEAPOTTILE);
+	}
+
+	@SubscribeEvent
+	public static void registerEntities(Register<EntityType<?>> event)
+	{
 		logger.info("Registering entities for Test");
 		event.getRegistry().register(ModEntities.WINGS);
-    }
+	}
+
 	/*@SubscribeEvent
-    public static void registerEntities(Register<EntityEntry> event)
+	public static void registerEntities(Register<EntityEntry> event)
 	{
 		event.getRegistry().register(EntityEntryBuilder.create().entity(Wings.class)
 				.id(new ResourceLocation(Reference.MOD_ID, "wings"), 1).name("wings")
@@ -89,7 +90,8 @@ public class RegistryHandler
 				.getBiomes(BiomeDictionary.Type.HOT))
 				.egg(4, 7)
 				.build());
-    }*/
+	}*/
+
 	private static Item fromBlock(Block block)
 	{
 		return new ItemBlock(block, (new Item.Properties()).group(Tab.TEST_TAB)).setRegistryName(block.getRegistryName());

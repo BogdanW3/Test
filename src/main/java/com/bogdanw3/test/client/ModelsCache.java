@@ -4,9 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Predicate;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import com.bogdanw3.test.client.obj.AdvancedModelLoader;
 import com.bogdanw3.test.client.obj.IModelCustom;
 
@@ -20,8 +17,6 @@ public enum ModelsCache implements ISelectiveResourceReloadListener
 {
 	INSTANCE;
 
-	//private static final Logger logger = LogManager.getLogger();
-
 	private final Map<ResourceLocation, IModelCustom> cache = new HashMap
 			<ResourceLocation, IModelCustom>();
 
@@ -30,7 +25,6 @@ public enum ModelsCache implements ISelectiveResourceReloadListener
 		IModelCustom model = cache.get( location );
 		if( model == null )
 		{
-			//logger.info("Cache miss for: " + location.getResourcePath());
 			try
 			{
 				model = AdvancedModelLoader.loadModel(location);

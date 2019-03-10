@@ -13,6 +13,7 @@ public class InotitePickaxe extends DefaultItem
 		this.setHarvestLevel("pickaxe", 5);
 		this.setMaxStackSize(1);*/
 	}
+
 	@Override
 	public boolean getIsRepairable(ItemStack item, ItemStack material)
 	{

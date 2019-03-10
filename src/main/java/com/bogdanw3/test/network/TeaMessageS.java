@@ -9,7 +9,7 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.fml.network.NetworkEvent.Context;
 
-public class TeaMessageS// implements IMessage
+public class TeaMessageS
 {
     private String text1, text2;
     private int x, y, z;
@@ -29,7 +29,6 @@ public class TeaMessageS// implements IMessage
         this.z = z;
     }
 
-    //@Override
     public static TeaMessageS fromBytes(ByteBuf buf)
     {
     	int len1 = buf.readInt();
@@ -38,7 +37,6 @@ public class TeaMessageS// implements IMessage
     		,buf.readCharSequence(len2, main).toString(), buf.readInt(), buf.readInt(), buf.readInt());
     }
 
-    //@Override
     public void toBytes(ByteBuf buf)
     {
     	buf.writeInt(text1.length());
@@ -50,10 +48,8 @@ public class TeaMessageS// implements IMessage
     	buf.writeInt(z);
     }
 
-    public static class Handler// implements IMessageHandler<TeaMessageS, IMessage>
+    public static class Handler
     {
-        
-        //@Override
         public static void onMessage(TeaMessageS message, Supplier<Context> ctx)
         {
             //Test.logger.debug(String.format("Received %s %s %s %s %s from %s", message.text1, message.text2, message.x, message.y, message.z, ctx.get().getSender().getName()));

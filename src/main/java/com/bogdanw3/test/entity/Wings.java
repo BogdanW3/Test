@@ -27,13 +27,13 @@ public class Wings extends EntityCreature
         this.tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 1.4F));
         this.tasks.addTask(4, new EntityAILookIdle(this));
 	}
-	
+
 	@Override
 	public boolean canDespawn()
 	{
 		return false;
 	}
-	
+
 	@Override
 	protected void registerAttributes()
     {
@@ -42,7 +42,7 @@ public class Wings extends EntityCreature
         this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.5D);
         this.getAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0.7D);
     }
-	
+
 	@Override
 	protected int getExperiencePoints(EntityPlayer entityPlayer)
     {

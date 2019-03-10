@@ -1,13 +1,7 @@
 package com.bogdanw3.test.client.obj;
 
-/**
- * Thrown if there is a problem parsing the model
- *
- * @author cpw
- *
- */
-public class ModelFormatException extends RuntimeException {
-
+public class ModelFormatException extends RuntimeException
+{
     private static final long serialVersionUID = 2023547503969671835L;
 
     public ModelFormatException()
@@ -29,5 +23,4 @@ public class ModelFormatException extends RuntimeException {
     {
         super(cause);
     }
-
 }

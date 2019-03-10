@@ -22,34 +22,34 @@ public class Teapot extends DefaultBlock
 		super("Teapot", Properties.create(Material.CLOTH));
 	}
 
-    /*@Override
-    public boolean isOpaqueCube(IBlockState state)
-    {
-        return false;
-    }*/
+	/*@Override
+	public boolean isOpaqueCube(IBlockState state)
+	{
+		return false;
+	}*/
 
-    @Override
-    public boolean onBlockActivated(IBlockState state, World world, BlockPos pos, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ)
-    {
-    	Minecraft.getInstance().displayGuiScreen(new TeapotGUI((TeapotTile)world.getTileEntity(pos)));
-        return true;
+	@Override
+	public boolean onBlockActivated(IBlockState state, World world, BlockPos pos, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ)
+	{
+		Minecraft.getInstance().displayGuiScreen(new TeapotGUI((TeapotTile)world.getTileEntity(pos)));
+		return true;
 	}
-    
-    @Override
+	
+	@Override
 	public TileEntity createTileEntity(IBlockState state, IBlockReader world)
-    {
+	{
 	 	return new TeapotTile();
-    }
-    
-    @Override
+	}
+	
+	@Override
 	public boolean hasTileEntity(IBlockState state)
-    {
+	{
 	 	return true;
-    }
-    
-    @Override
-    public BlockRenderLayer getRenderLayer()
-    {
-        return BlockRenderLayer.TRANSLUCENT;
-    }
+	}
+	
+	@Override
+	public BlockRenderLayer getRenderLayer()
+	{
+		return BlockRenderLayer.TRANSLUCENT;
+	}
 }

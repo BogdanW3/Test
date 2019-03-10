@@ -20,7 +20,7 @@ public class GUIHandler implements IGuiHandler
 	{
 		if (ID == TeapotGUI.GUI_ID)
 		{
-	           return new TeapotGUI((TeapotTile) world.getTileEntity(new BlockPos(x, y, z)));
+			return new TeapotGUI((TeapotTile) world.getTileEntity(new BlockPos(x, y, z)));
 		}
 		return null;
 	}

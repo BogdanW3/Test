@@ -9,11 +9,13 @@ public class DefaultBlock extends Block
 	{
 		super(properties);
 	}
+
 	public DefaultBlock(String name)
 	{
 		this(Properties.create(Material.ROCK));
 		this.setRegistryName(name.toLowerCase());
 	}
+
 	public DefaultBlock(String name, Properties properties)
 	{
 		this(properties);
